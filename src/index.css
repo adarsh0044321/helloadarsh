@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Kanit", sans-serif;
+  --color-dark-bg: #0C0C0C;
+  --color-light-text: #D7E2EA;
+}
+
+/* Global Reset and Styles */
+html,
+body,
+#root {
+  background-color: #0C0C0C;
+  color: #D7E2EA;
+  font-family: "Kanit", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Custom Typography & Utility Classes */
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Background grid styling for high-end cinematic feel */
+.bg-grid-pattern {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(215, 226, 234, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(215, 226, 234, 0.015) 1px, transparent 1px);
+}
+
+/* Atmospheric neon radial glows */
+.mesh-glow-purple {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.08) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.mesh-glow-orange {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.06) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.mesh-glow-blue {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C0C0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2D2F33;
+  border-radius: 5px;
+  border: 2px solid #0C0C0C;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4C4F54;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
