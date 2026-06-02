@@ -21,9 +21,9 @@ const PROJECTS: ProjectData[] = [
     category: "Rust & Remote Streaming",
     name: "Beacon-Pulse",
     url: "https://github.com/adarsh0044321/beacon-pulse",
-    imgCol1Row1: "/beacon_server_cli.png",
-    imgCol1Row2: "/beacon_player_cli.png",
-    imgCol2: "/beacon_pulse_promo.png",
+    imgCol1Row1: "beacon_server_cli.png",
+    imgCol1Row2: "beacon_player_cli.png",
+    imgCol2: "beacon_pulse_promo.png",
     objectFit: "contain",
   },
   {
