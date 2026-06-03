@@ -178,3 +178,26 @@ textarea {
 .animate-fade-up {
   animation: fadeUp 0.6s ease-out both;
 }
+
+/* ── Interactive Terminal Additions ── */
+.text-glow {
+  text-shadow: 0 0 10px rgba(232, 102, 60, 0.4);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-dim);
+}
+
