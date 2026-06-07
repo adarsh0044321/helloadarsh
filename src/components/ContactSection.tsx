@@ -25,7 +25,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5"
           >
-            <h2 className="font-sans font-bold text-3xl md:text-4xl text-text-primary leading-tight mb-6">
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-text-primary leading-tight mb-6">
               Let&apos;s build something.
             </h2>
             <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-10">

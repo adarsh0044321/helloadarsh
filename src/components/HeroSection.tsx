@@ -50,7 +50,7 @@ export default function HeroSection() {
               Software Systems Engineer
             </span>
 
-            <h1 className="font-sans font-extrabold text-5xl md:text-7xl tracking-tight leading-[0.95] mb-6 bg-gradient-to-r from-text-primary via-white to-text-secondary bg-clip-text text-transparent">
+            <h1 className="font-display font-bold text-5xl md:text-7xl tracking-tight leading-[0.95] mb-6 bg-gradient-to-r from-text-primary via-white to-text-secondary bg-clip-text text-transparent">
               Adarsh Kumar Singh
             </h1>
 
@@ -62,7 +62,7 @@ export default function HeroSection() {
             {/* Quick Metadata Stats */}
             <div className="grid grid-cols-3 gap-4 mb-10 w-full max-w-md">
               <motion.div 
-                whileHover={{ y: -4, borderColor: "rgba(232, 102, 60, 0.3)" }}
+                whileHover={{ y: -4, borderColor: "rgba(223, 177, 91, 0.3)" }}
                 className="bg-surface/30 border border-border rounded-xl px-4 py-3 cursor-default transition-all duration-300"
               >
                 <p className="text-[10px] text-text-muted uppercase tracking-wider font-semibold mb-1">
@@ -74,7 +74,7 @@ export default function HeroSection() {
               </motion.div>
 
               <motion.div 
-                whileHover={{ y: -4, borderColor: "rgba(232, 102, 60, 0.3)" }}
+                whileHover={{ y: -4, borderColor: "rgba(223, 177, 91, 0.3)" }}
                 className="bg-surface/30 border border-border rounded-xl px-4 py-3 cursor-default transition-all duration-300"
               >
                 <p className="text-[10px] text-text-muted uppercase tracking-wider font-semibold mb-1">
@@ -86,7 +86,7 @@ export default function HeroSection() {
               </motion.div>
 
               <motion.div 
-                whileHover={{ y: -4, borderColor: "rgba(232, 102, 60, 0.3)" }}
+                whileHover={{ y: -4, borderColor: "rgba(223, 177, 91, 0.3)" }}
                 className="bg-surface/30 border border-border rounded-xl px-4 py-3 cursor-default transition-all duration-300"
               >
                 <p className="text-[10px] text-text-muted uppercase tracking-wider font-semibold mb-1">
@@ -122,7 +122,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  whileHover={{ y: -5, x: 2, borderColor: "rgba(232, 102, 60, 0.4)", backgroundColor: "rgba(20, 20, 22, 0.7)" }}
+                  whileHover={{ y: -5, x: 2, borderColor: "rgba(223, 177, 91, 0.4)", backgroundColor: "rgba(22, 25, 30, 0.7)" }}
                   className="bg-surface/40 backdrop-blur-md border border-border p-5 rounded-xl transition-all duration-300 flex items-start gap-4 shadow-lg shadow-black/10 group cursor-default"
                 >
                   <div className="p-3 rounded-lg bg-bg border border-border shrink-0 transition-colors group-hover:border-accent/20">

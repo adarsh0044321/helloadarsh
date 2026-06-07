@@ -1,27 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-bg: #0A0A0B;
-  --color-surface: #141416;
-  --color-surface-hover: #1A1A1D;
-  --color-border: #1E1E22;
-  --color-border-hover: #2A2A30;
+  --color-bg: #0F1115;
+  --color-surface: #16191E;
+  --color-surface-hover: #1C2026;
+  --color-border: #242930;
+  --color-border-hover: #303742;
 
-  --color-text-primary: #E8E8E8;
-  --color-text-secondary: #737380;
-  --color-text-muted: #4A4A55;
+  --color-text-primary: #F3F4F6;
+  --color-text-secondary: #9CA3AF;
+  --color-text-muted: #6B7280;
 
-  --color-accent: #E8663C;
-  --color-accent-dim: rgba(232, 102, 60, 0.15);
-  --color-accent-glow: rgba(232, 102, 60, 0.08);
-
-  --color-light-bg: #FAFAF9;
-  --color-light-surface: #F0F0EE;
-  --color-light-text: #1A1A1D;
-  --color-light-text-secondary: #6B6B75;
+  --color-accent: #DFB15B;
+  --color-accent-dim: rgba(223, 177, 91, 0.15);
+  --color-accent-glow: rgba(223, 177, 91, 0.06);
 }
 
 /* ── Base Reset ── */
@@ -44,14 +41,13 @@ body {
 }
 
 ::selection {
-  background-color: rgba(232, 102, 60, 0.25);
+  background-color: rgba(223, 177, 91, 0.2);
   color: #fff;
 }
 
 /* ── Typography Utilities ── */
 .font-display {
-  font-family: var(--font-sans);
-  letter-spacing: -0.03em;
+  font-family: var(--font-serif);
 }
 
 .font-code {
@@ -63,49 +59,20 @@ body {
 /* ── Section Label ── */
 .section-label {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--color-text-muted);
-  letter-spacing: 0.02em;
-  margin-bottom: 2.5rem;
-}
-
-/* ── Terminal Card ── */
-.terminal-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-
-.terminal-card:hover {
-  border-color: var(--color-border-hover);
-  background: var(--color-surface-hover);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: inline-block;
+  border-bottom: 1px solid var(--color-accent-dim);
+  padding-bottom: 0.25rem;
 }
 
 /* ── Link Styles ── */
 a {
   color: inherit;
   text-decoration: none;
-}
-
-.link-underline {
-  position: relative;
-  display: inline-block;
-}
-
-.link-underline::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1px;
-  background: var(--color-accent);
-  transition: width 0.3s ease;
-}
-
-.link-underline:hover::after {
-  width: 100%;
 }
 
 /* ── Scrollbar ── */
@@ -128,7 +95,7 @@ a {
 
 /* ── Form Inputs ── */
 input, textarea {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--color-border);
@@ -153,17 +120,7 @@ textarea {
   min-height: 120px;
 }
 
-/* ── Cursor Blink ── */
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-.cursor-blink {
-  animation: blink 1s step-end infinite;
-}
-
-/* ── Subtle Fade In (CSS-only for non-critical elements) ── */
+/* ── Subtle Animations ── */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -177,11 +134,6 @@ textarea {
 
 .animate-fade-up {
   animation: fadeUp 0.6s ease-out both;
-}
-
-/* ── Interactive Terminal Additions ── */
-.text-glow {
-  text-shadow: 0 0 10px rgba(232, 102, 60, 0.4);
 }
 
 .scrollbar-thin::-webkit-scrollbar {
@@ -200,4 +152,3 @@ textarea {
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent-dim);
 }
-

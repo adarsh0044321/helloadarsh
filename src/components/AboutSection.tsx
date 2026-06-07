@@ -16,7 +16,7 @@ export default function AboutSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <h2 className="font-sans font-bold text-3xl md:text-4xl text-text-primary leading-tight mb-8">
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-text-primary leading-tight mb-8">
               Building systems that run clean, fast, and stable.
             </h2>
             <div className="max-w-[60ch] space-y-6">

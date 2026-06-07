@@ -120,7 +120,7 @@ export default function InteractiveBackground() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(232, 102, 60, ${alpha})`;
+            ctx.strokeStyle = `rgba(223, 177, 91, ${alpha})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }

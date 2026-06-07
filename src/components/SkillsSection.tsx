@@ -51,7 +51,7 @@ export default function SkillsSection() {
     <section id="skills" className="py-24 md:py-32 relative border-t border-border">
       <div className="max-w-6xl mx-auto px-6">
         <p className="text-xs font-mono uppercase tracking-widest text-accent mb-6">// engineering capability</p>
-        <h2 className="font-sans font-bold text-2xl md:text-3xl text-text-primary mb-12">
+        <h2 className="font-display font-bold text-2xl md:text-3xl text-text-primary mb-12">
           Systems Operations Matrix
         </h2>
 

@@ -37,7 +37,7 @@ function App() {
       <div 
         className="fixed inset-0 pointer-events-none -z-20 hidden md:block"
         style={{
-          background: `radial-gradient(600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(232, 102, 60, 0.045), transparent 80%)`
+          background: `radial-gradient(600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(223, 177, 91, 0.045), transparent 80%)`
         }}
       />
 
