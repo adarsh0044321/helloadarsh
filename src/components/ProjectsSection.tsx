@@ -95,7 +95,7 @@ export default function ProjectsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="border border-border bg-surface/30 rounded-2xl overflow-hidden hover:border-accent/20 transition-all duration-300 shadow-md shadow-black/5"
+                className="acrylic-glass neumorphic-out rounded-2xl overflow-hidden hover:border-accent/30 transition-all duration-300"
               >
                 {/* Main Card Header */}
                 <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
@@ -189,8 +189,8 @@ export default function ProjectsSection() {
                             {project.specs.map((spec) => (
                               <motion.div 
                                 key={spec.name} 
-                                whileHover={{ y: -2, borderColor: 'rgba(232, 102, 60, 0.2)' }}
-                                className="p-4 rounded-xl bg-surface/40 border border-border/60 transition-all duration-200"
+                                whileHover={{ y: -2, borderColor: 'rgba(223, 177, 91, 0.2)' }}
+                                className="acrylic-glass neumorphic-in rounded-2xl p-4 transition-all duration-200"
                               >
                                 <p className="font-sans font-bold text-xs text-text-primary uppercase tracking-wide flex items-center gap-1.5">
                                   <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
@@ -212,7 +212,7 @@ export default function ProjectsSection() {
                           </p>
                           
                           {/* Programmatically parsed flow blocks */}
-                          <div className="flex flex-wrap items-center gap-3 p-4 rounded-xl bg-surface/30 border border-border/80">
+                          <div className="flex flex-wrap items-center gap-3 p-4 rounded-2xl acrylic-glass neumorphic-in">
                             {project.flowchart.split('➔').map((step, stepIdx, arr) => (
                               <React.Fragment key={stepIdx}>
                                 <div className="bg-bg border border-border/60 px-3.5 py-2 rounded-xl text-xs text-text-primary font-medium shadow-sm">

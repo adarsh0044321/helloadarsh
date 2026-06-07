@@ -30,7 +30,7 @@ export default function AboutSection() {
 
             {/* Competency highlights */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
-              <div className="border border-border bg-surface/30 rounded-xl p-4 flex flex-col items-start gap-3">
+              <div className="acrylic-glass neumorphic-out rounded-2xl p-4 flex flex-col items-start gap-3">
                 <div className="p-2 bg-bg border border-border rounded-lg">
                   <Layers className="w-4 h-4 text-accent" />
                 </div>
@@ -40,7 +40,7 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              <div className="border border-border bg-surface/30 rounded-xl p-4 flex flex-col items-start gap-3">
+              <div className="acrylic-glass neumorphic-out rounded-2xl p-4 flex flex-col items-start gap-3">
                 <div className="p-2 bg-bg border border-border rounded-lg">
                   <Cpu className="w-4 h-4 text-accent" />
                 </div>
@@ -50,7 +50,7 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              <div className="border border-border bg-surface/30 rounded-xl p-4 flex flex-col items-start gap-3">
+              <div className="acrylic-glass neumorphic-out rounded-2xl p-4 flex flex-col items-start gap-3">
                 <div className="p-2 bg-bg border border-border rounded-lg">
                   <Zap className="w-4 h-4 text-accent" />
                 </div>
@@ -71,7 +71,7 @@ export default function AboutSection() {
             className="lg:col-span-5 flex flex-col gap-4 w-full"
           >
             {/* Minimalist image showcase */}
-            <div className="w-full aspect-[4/3] max-w-sm mx-auto relative rounded-2xl border border-border bg-surface overflow-hidden group shadow-lg shadow-black/10">
+            <div className="w-full aspect-[4/3] max-w-sm mx-auto relative rounded-2xl overflow-hidden group shadow-lg shadow-black/10 acrylic-glass neumorphic-out">
               <img
                 src="https://framerusercontent.com/images/ajFhk3hDzd27LtsxPDROntb2jA.png"
                 alt="Adarsh Kumar Singh Profile"
@@ -82,19 +82,19 @@ export default function AboutSection() {
 
             {/* Key Skill Highlights Grid */}
             <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto w-full">
-              <div className="bg-surface/30 border border-border rounded-xl p-3.5 transition-colors hover:border-accent/20">
+              <div className="acrylic-glass neumorphic-out rounded-2xl p-3.5 transition-all duration-300 hover:border-accent/30">
                 <p className="text-[9px] font-mono text-accent uppercase tracking-wider font-semibold mb-1">Languages</p>
                 <p className="text-xs text-text-secondary font-medium">Rust, Python, Kotlin, C#</p>
               </div>
-              <div className="bg-surface/30 border border-border rounded-xl p-3.5 transition-colors hover:border-accent/20">
+              <div className="acrylic-glass neumorphic-out rounded-2xl p-3.5 transition-all duration-300 hover:border-accent/30">
                 <p className="text-[9px] font-mono text-accent uppercase tracking-wider font-semibold mb-1">Network</p>
                 <p className="text-xs text-text-secondary font-medium">TCP/UDP, Multicast, WebRTC</p>
               </div>
-              <div className="bg-surface/30 border border-border rounded-xl p-3.5 transition-colors hover:border-accent/20">
+              <div className="acrylic-glass neumorphic-out rounded-2xl p-3.5 transition-all duration-300 hover:border-accent/30">
                 <p className="text-[9px] font-mono text-accent uppercase tracking-wider font-semibold mb-1">Environments</p>
                 <p className="text-xs text-text-secondary font-medium">Win32, Linux, Android</p>
               </div>
-              <div className="bg-surface/30 border border-border rounded-xl p-3.5 transition-colors hover:border-accent/20">
+              <div className="acrylic-glass neumorphic-out rounded-2xl p-3.5 transition-all duration-300 hover:border-accent/30">
                 <p className="text-[9px] font-mono text-accent uppercase tracking-wider font-semibold mb-1">Engines</p>
                 <p className="text-xs text-text-secondary font-medium">WGC, OpenCV, TF Lite</p>
               </div>

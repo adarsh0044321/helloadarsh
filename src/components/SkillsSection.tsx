@@ -63,7 +63,7 @@ export default function SkillsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-surface/30 border border-border rounded-2xl p-6 hover:border-accent/30 transition-all duration-300 shadow-md shadow-black/5"
+              className="acrylic-glass neumorphic-out rounded-2xl p-6 hover:border-accent/30 transition-all duration-300"
             >
               <div className="flex justify-between items-center gap-4">
                 <div className="flex items-center gap-3">

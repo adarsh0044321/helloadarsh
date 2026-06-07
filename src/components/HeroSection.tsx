@@ -63,7 +63,7 @@ export default function HeroSection() {
             <div className="grid grid-cols-3 gap-4 mb-10 w-full max-w-md">
               <motion.div 
                 whileHover={{ y: -4, borderColor: "rgba(223, 177, 91, 0.3)" }}
-                className="bg-surface/30 border border-border rounded-xl px-4 py-3 cursor-default transition-all duration-300"
+                className="acrylic-glass neumorphic-out rounded-2xl px-4 py-3 cursor-default transition-all duration-300"
               >
                 <p className="text-[10px] text-text-muted uppercase tracking-wider font-semibold mb-1">
                   Location
@@ -75,7 +75,7 @@ export default function HeroSection() {
 
               <motion.div 
                 whileHover={{ y: -4, borderColor: "rgba(223, 177, 91, 0.3)" }}
-                className="bg-surface/30 border border-border rounded-xl px-4 py-3 cursor-default transition-all duration-300"
+                className="acrylic-glass neumorphic-out rounded-2xl px-4 py-3 cursor-default transition-all duration-300"
               >
                 <p className="text-[10px] text-text-muted uppercase tracking-wider font-semibold mb-1">
                   Focus
@@ -87,7 +87,7 @@ export default function HeroSection() {
 
               <motion.div 
                 whileHover={{ y: -4, borderColor: "rgba(223, 177, 91, 0.3)" }}
-                className="bg-surface/30 border border-border rounded-xl px-4 py-3 cursor-default transition-all duration-300"
+                className="acrylic-glass neumorphic-out rounded-2xl px-4 py-3 cursor-default transition-all duration-300"
               >
                 <p className="text-[10px] text-text-muted uppercase tracking-wider font-semibold mb-1">
                   Availability
@@ -122,8 +122,8 @@ export default function HeroSection() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  whileHover={{ y: -5, x: 2, borderColor: "rgba(223, 177, 91, 0.4)", backgroundColor: "rgba(22, 25, 30, 0.7)" }}
-                  className="bg-surface/40 backdrop-blur-md border border-border p-5 rounded-xl transition-all duration-300 flex items-start gap-4 shadow-lg shadow-black/10 group cursor-default"
+                  whileHover={{ y: -5, x: 2, borderColor: "rgba(223, 177, 91, 0.4)", backgroundColor: "rgba(22, 25, 30, 0.6)" }}
+                  className="acrylic-glass neumorphic-out p-5 rounded-2xl transition-all duration-300 flex items-start gap-4 group cursor-default"
                 >
                   <div className="p-3 rounded-lg bg-bg border border-border shrink-0 transition-colors group-hover:border-accent/20">
                     {spec.icon}

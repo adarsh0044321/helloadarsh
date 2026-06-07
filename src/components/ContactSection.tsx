@@ -36,7 +36,7 @@ export default function ContactSection() {
             <div className="space-y-4">
               <div
                 onClick={() => handleCopy('adarshkumarsingh004@gmail.com', 'email address')}
-                className="bg-surface/30 border border-border rounded-xl p-4 flex justify-between items-center cursor-pointer hover:border-accent/30 transition-all duration-300 group"
+                className="acrylic-glass neumorphic-out rounded-2xl p-4 flex justify-between items-center cursor-pointer hover:border-accent/30 transition-all duration-300 group"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 rounded-lg bg-bg border border-border group-hover:border-accent/20 transition-colors">
@@ -56,7 +56,7 @@ export default function ContactSection() {
 
               <div
                 onClick={() => handleCopy('https://github.com/adarsh0044321', 'GitHub URL')}
-                className="bg-surface/30 border border-border rounded-xl p-4 flex justify-between items-center cursor-pointer hover:border-accent/30 transition-all duration-300 group"
+                className="acrylic-glass neumorphic-out rounded-2xl p-4 flex justify-between items-center cursor-pointer hover:border-accent/30 transition-all duration-300 group"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 rounded-lg bg-bg border border-border group-hover:border-accent/20 transition-colors">
@@ -79,7 +79,7 @@ export default function ContactSection() {
 
               <div
                 onClick={() => handleCopy('https://www.linkedin.com/in/adarsh-kumar-singh-166b76317', 'LinkedIn URL')}
-                className="bg-surface/30 border border-border rounded-xl p-4 flex justify-between items-center cursor-pointer hover:border-accent/30 transition-all duration-300 group"
+                className="acrylic-glass neumorphic-out rounded-2xl p-4 flex justify-between items-center cursor-pointer hover:border-accent/30 transition-all duration-300 group"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 rounded-lg bg-bg border border-border group-hover:border-accent/20 transition-colors">
@@ -129,7 +129,7 @@ export default function ContactSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-7"
           >
-            <div className="bg-surface/30 border border-border rounded-2xl overflow-hidden shadow-lg p-6 md:p-8">
+            <div className="acrylic-glass neumorphic-out rounded-2xl p-6 md:p-8">
               
               <form name="contact" method="POST" data-netlify="true" className="space-y-6">
                 <input type="hidden" name="form-name" value="contact" />
@@ -150,7 +150,7 @@ export default function ContactSection() {
                         name="name"
                         placeholder="Your name"
                         required
-                        className="peer w-full bg-bg border border-border rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/40 transition-colors"
+                        className="peer w-full bg-bg/50 border border-border/80 rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/40 transition-all duration-300 neumorphic-in"
                       />
                       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent origin-center scale-x-0 transition-transform duration-300 peer-focus:scale-x-100" />
                     </div>
@@ -171,7 +171,7 @@ export default function ContactSection() {
                         name="email"
                         placeholder="your@email.com"
                         required
-                        className="peer w-full bg-bg border border-border rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/40 transition-colors"
+                        className="peer w-full bg-bg/50 border border-border/80 rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/40 transition-all duration-300 neumorphic-in"
                       />
                       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent origin-center scale-x-0 transition-transform duration-300 peer-focus:scale-x-100" />
                     </div>
@@ -192,7 +192,7 @@ export default function ContactSection() {
                         placeholder="Describe your project requirements..."
                         required
                         rows={5}
-                        className="peer w-full bg-bg border border-border rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/40 transition-colors resize-none"
+                        className="peer w-full bg-bg/50 border border-border/80 rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/40 transition-all duration-300 resize-none neumorphic-in"
                       />
                       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent origin-center scale-x-0 transition-transform duration-300 peer-focus:scale-x-100" />
                     </div>

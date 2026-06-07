@@ -56,6 +56,26 @@ body {
   letter-spacing: -0.01em;
 }
 
+/* ── Glassmorphism & Neumorphism Utilities ── */
+.acrylic-glass {
+  background: rgba(22, 25, 30, 0.4);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.neumorphic-out {
+  box-shadow: 
+    6px 6px 16px rgba(0, 0, 0, 0.4), 
+    -6px -6px 16px rgba(255, 255, 255, 0.012);
+}
+
+.neumorphic-in {
+  box-shadow: 
+    inset 3px 3px 8px rgba(0, 0, 0, 0.5), 
+    inset -3px -3px 8px rgba(255, 255, 255, 0.008);
+}
+
 /* ── Section Label ── */
 .section-label {
   font-family: var(--font-mono);
