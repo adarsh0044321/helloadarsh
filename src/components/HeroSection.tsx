@@ -17,6 +17,39 @@ export default function HeroSection() {
   const [isProcessing, setIsProcessing] = useState(false);
   const logsEndRef = useRef<HTMLDivElement>(null);
 
+  // Typewriter effect states
+  const roles = ["rust systems developer", "computer vision developer", "low-latency protocol engineer"];
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [typedRole, setTypedRole] = useState("");
+  const [isDeletingRole, setIsDeletingRole] = useState(false);
+
+  // Typewriter ticker
+  useEffect(() => {
+    let timer: number;
+    const fullText = roles[roleIndex];
+    
+    const tick = () => {
+      if (!isDeletingRole) {
+        setTypedRole(fullText.substring(0, typedRole.length + 1));
+        if (typedRole === fullText) {
+          timer = setTimeout(() => setIsDeletingRole(true), 2000);
+          return;
+        }
+      } else {
+        setTypedRole(fullText.substring(0, typedRole.length - 1));
+        if (typedRole === "") {
+          setIsDeletingRole(false);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
+          return;
+        }
+      }
+      timer = setTimeout(tick, isDeletingRole ? 30 : 70);
+    };
+
+    timer = setTimeout(tick, 100);
+    return () => clearTimeout(timer);
+  }, [typedRole, isDeletingRole, roleIndex]);
+
   // Auto-scroll logs to bottom
   useEffect(() => {
     logsEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -179,7 +212,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="min-h-[100dvh] flex items-center pt-24 pb-16">
+    <section id="hero" className="min-h-[100dvh] flex items-center pt-24 pb-16 relative">
       <div className="max-w-6xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Typography & Bio */}
@@ -189,56 +222,70 @@ export default function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <p className="font-mono text-sm text-text-muted mb-6">
-              // systems developer
+            <p className="font-mono text-xs md:text-sm text-text-muted mb-6 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-accent animate-ping"></span>
+              <span>// systems engineer & developer</span>
             </p>
 
-            <h1 className="font-sans font-bold text-5xl md:text-7xl tracking-tighter leading-[0.95] text-text-primary mb-5">
+            <h1 className="font-sans font-bold text-5xl md:text-7xl tracking-tighter leading-[0.95] mb-5 bg-gradient-to-r from-text-primary via-white to-text-secondary bg-clip-text text-transparent">
               Adarsh Kumar Singh
             </h1>
 
-            <p className="font-mono text-lg md:text-xl text-accent mb-8">
-              rust / systems / computer vision
+            <p className="font-mono text-base md:text-lg text-accent mb-8 h-8 flex items-center">
+              <span>{typedRole}</span>
+              <span className="w-1.5 h-4 bg-accent ml-1 animate-pulse"></span>
             </p>
 
-            <p className="text-text-secondary text-base leading-relaxed max-w-[50ch] mb-10">
+            <p className="text-text-secondary text-sm md:text-base leading-relaxed max-w-[50ch] mb-10">
               I build low-latency desktop engines, automated computer vision pipelines, and system utilities. 
               Focused on crafting clean, high-performance, and high-integrity code in Rust, Python, and Kotlin.
             </p>
 
             <div className="flex flex-wrap gap-4 items-center mb-10 w-full max-w-lg">
-              <div className="terminal-card px-4 py-3 flex-1 min-w-[140px]">
-                <p className="font-mono text-xs text-text-muted uppercase tracking-wider mb-1">
+              <motion.div 
+                whileHover={{ y: -5, scale: 1.02, borderColor: 'var(--color-accent)' }}
+                transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+                className="terminal-card px-4 py-3 flex-1 min-w-[140px] cursor-default border border-border"
+              >
+                <p className="font-mono text-[10px] text-text-muted uppercase tracking-wider mb-1">
                   location
                 </p>
-                <p className="font-mono text-sm text-text-secondary">
+                <p className="font-mono text-xs md:text-sm text-text-secondary">
                   palamu, india
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="terminal-card px-4 py-3 flex-1 min-w-[140px]">
-                <p className="font-mono text-xs text-text-muted uppercase tracking-wider mb-1">
+              <motion.div 
+                whileHover={{ y: -5, scale: 1.02, borderColor: 'var(--color-accent)' }}
+                transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+                className="terminal-card px-4 py-3 flex-1 min-w-[140px] cursor-default border border-border"
+              >
+                <p className="font-mono text-[10px] text-text-muted uppercase tracking-wider mb-1">
                   primary tool
                 </p>
-                <p className="font-mono text-sm text-text-secondary">
+                <p className="font-mono text-xs md:text-sm text-text-secondary">
                   rust / systems
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="terminal-card px-4 py-3 flex-1 min-w-[140px]">
-                <p className="font-mono text-xs text-text-muted uppercase tracking-wider mb-1">
+              <motion.div 
+                whileHover={{ y: -5, scale: 1.02, borderColor: 'var(--color-accent)' }}
+                transition={{ type: 'spring', stiffness: 350, damping: 20 }}
+                className="terminal-card px-4 py-3 flex-1 min-w-[140px] cursor-default border border-border"
+              >
+                <p className="font-mono text-[10px] text-text-muted uppercase tracking-wider mb-1">
                   status
                 </p>
-                <p className="font-mono text-sm text-accent flex items-center gap-1.5">
+                <p className="font-mono text-xs md:text-sm text-accent flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
                   open for work
                 </p>
-              </div>
+              </motion.div>
             </div>
 
             <a
               href="#projects"
-              className="font-mono text-sm text-text-secondary hover:text-accent transition-colors flex items-center gap-2 group"
+              className="font-mono text-xs md:text-sm text-text-secondary hover:text-accent transition-colors flex items-center gap-2 group"
             >
               Explore engineering works
               <span className="group-hover:translate-y-1 transition-transform">↓</span>
@@ -253,27 +300,47 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
           >
             {/* Real-time Status Panel */}
-            <div className="terminal-card p-4 flex justify-between items-center gap-4 border border-border bg-surface">
-              <div className="flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-accent animate-pulse" />
-                <span className="font-mono text-xs text-text-secondary">CPU:</span>
-                <span className="font-mono text-xs font-semibold text-text-primary">
-                  {sysCpu}%
-                </span>
+            <div className="terminal-card p-4 flex flex-col gap-3.5 border border-border bg-surface">
+              <div className="flex justify-between items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <Cpu className="w-4 h-4 text-accent animate-pulse" />
+                  <span className="font-mono text-xs text-text-secondary">CPU:</span>
+                  <span className="font-mono text-xs font-semibold text-text-primary">
+                    {sysCpu}%
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Wifi className="w-4 h-4 text-accent" />
+                  <span className="font-mono text-xs text-text-secondary">LAN Latency:</span>
+                  <span className="font-mono text-xs font-semibold text-text-primary">
+                    {sysLatency}ms
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <ShieldAlert className="w-4 h-4 text-accent" />
+                  <span className="font-mono text-xs text-text-secondary">HUD Exclusion:</span>
+                  <span className="font-mono text-xs font-semibold text-accent text-glow">
+                    ACTIVE
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Wifi className="w-4 h-4 text-accent" />
-                <span className="font-mono text-xs text-text-secondary">LAN Latency:</span>
-                <span className="font-mono text-xs font-semibold text-text-primary">
-                  {sysLatency}ms
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldAlert className="w-4 h-4 text-accent" />
-                <span className="font-mono text-xs text-text-secondary">Stealth HUD:</span>
-                <span className="font-mono text-xs font-semibold text-accent text-glow">
-                  EXCLUDE
-                </span>
+              
+              {/* Cores thread activity display */}
+              <div className="flex justify-between items-center border-t border-border/60 pt-3">
+                <span className="font-mono text-[10px] text-text-muted">CORE LOGIC LOADS:</span>
+                <div className="flex gap-1.5 items-center">
+                  {[...Array(8)].map((_, i) => {
+                    const isActive = sysCpu > (i * 1.3);
+                    return (
+                      <span
+                        key={i}
+                        className={`w-2 h-2 rounded-sm transition-colors duration-500 ${
+                          isActive ? 'bg-accent shadow-[0_0_6px_#E8663C]' : 'bg-border/60'
+                        }`}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
@@ -345,25 +412,25 @@ export default function HeroSection() {
               <button
                 onClick={() => handleCommand("ping")}
                 disabled={isProcessing}
-                className="font-mono text-[10px] uppercase tracking-wider py-2 rounded-lg bg-surface border border-border hover:border-accent/40 text-text-secondary hover:text-text-primary transition-colors flex items-center justify-center gap-1"
+                className="font-mono text-[10px] uppercase tracking-wider py-2 rounded-lg bg-surface border border-border hover:border-accent/40 text-text-secondary hover:text-text-primary transition-colors flex items-center justify-center gap-1 cursor-pointer"
               >
-                <Wifi className="w-3 h-3 text-accent" />
+                <Wifi className="w-3.5 h-3.5 text-accent" />
                 Ping LAN
               </button>
               <button
                 onClick={() => handleCommand("scan")}
                 disabled={isProcessing}
-                className="font-mono text-[10px] uppercase tracking-wider py-2 rounded-lg bg-surface border border-border hover:border-accent/40 text-text-secondary hover:text-text-primary transition-colors flex items-center justify-center gap-1"
+                className="font-mono text-[10px] uppercase tracking-wider py-2 rounded-lg bg-surface border border-border hover:border-accent/40 text-text-secondary hover:text-text-primary transition-colors flex items-center justify-center gap-1 cursor-pointer"
               >
-                <Sparkles className="w-3 h-3 text-accent" />
+                <Sparkles className="w-3.5 h-3.5 text-accent" />
                 OCR Screen
               </button>
               <button
                 onClick={() => handleCommand("grade")}
                 disabled={isProcessing}
-                className="font-mono text-[10px] uppercase tracking-wider py-2 rounded-lg bg-surface border border-border hover:border-accent/40 text-text-secondary hover:text-text-primary transition-colors flex items-center justify-center gap-1"
+                className="font-mono text-[10px] uppercase tracking-wider py-2 rounded-lg bg-surface border border-border hover:border-accent/40 text-text-secondary hover:text-text-primary transition-colors flex items-center justify-center gap-1 cursor-pointer"
               >
-                <Cpu className="w-3 h-3 text-accent" />
+                <Cpu className="w-3.5 h-3.5 text-accent" />
                 CV Grade
               </button>
             </div>

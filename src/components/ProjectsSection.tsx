@@ -83,16 +83,20 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-24 md:py-32">
+    <section id="projects" className="py-24 md:py-32 border-t border-border">
       <div className="max-w-6xl mx-auto px-6">
         <p className="section-label">// engineering works</p>
         <h2 className="font-sans font-semibold text-2xl md:text-3xl text-text-primary mb-12">
           Featured systems & utilities
         </h2>
 
-        <div className="space-y-6">
+        <div className="space-y-8">
           {projects.map((project, index) => {
             const isExpanded = expandedProject === project.name;
+            const projectPath = 
+              project.name.toLowerCase() === 'beacon-pulse' ? 'src/main.rs' : 
+              project.name.toLowerCase() === 'focusflow' ? 'hud/solver.py' : 'app/grading.kt';
+
             return (
               <motion.div
                 key={project.name}
@@ -100,18 +104,35 @@ export default function ProjectsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="terminal-card border border-border bg-surface overflow-hidden hover:border-accent/30 transition-all duration-300"
+                className="terminal-card border border-border bg-surface overflow-hidden hover:border-accent/30 transition-all duration-300 shadow-lg"
               >
                 {/* Main Card Header */}
                 <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                  {/* Left part: Mockup graphic */}
-                  <div className="w-full md:w-2/5 aspect-[16/10] bg-bg rounded-lg border border-border overflow-hidden relative group">
-                    <img
-                      src={project.image}
-                      alt={`${project.name} interface mockup`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg/40 to-transparent pointer-events-none" />
+                  
+                  {/* Left part: Mockup graphic framed as an IDE Window */}
+                  <div className="w-full md:w-2/5 border border-border rounded-lg bg-bg overflow-hidden relative flex flex-col group shadow-md shadow-black/20 shrink-0">
+                    {/* Window Title Bar */}
+                    <div className="px-3 py-2 bg-bg/95 border-b border-border flex items-center justify-between select-none">
+                      <div className="flex gap-1.5 items-center">
+                        <span className="w-2 h-2 rounded-full bg-accent/60"></span>
+                        <span className="w-2 h-2 rounded-full bg-border-hover"></span>
+                        <span className="w-2 h-2 rounded-full bg-border-hover"></span>
+                      </div>
+                      <span className="font-mono text-[9px] text-text-muted">
+                        {projectPath}
+                      </span>
+                      <div className="w-8"></div>
+                    </div>
+
+                    {/* Project Screenshot Mockup */}
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={`${project.name} interface mockup`}
+                        className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-bg/50 to-transparent pointer-events-none" />
+                    </div>
                   </div>
 
                   {/* Right part: Details */}
@@ -128,7 +149,7 @@ export default function ProjectsSection() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-mono text-xs text-text-secondary hover:text-accent transition-colors flex items-center gap-1"
+                          className="font-mono text-xs text-text-secondary hover:text-accent transition-colors flex items-center gap-1.5 border border-border bg-bg/50 px-2 py-1 rounded-md hover:border-accent/30"
                         >
                           <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
@@ -191,7 +212,11 @@ export default function ProjectsSection() {
                           <p className="font-mono text-[10px] text-text-muted uppercase tracking-wider mb-3">// subsystem specifications</p>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {project.specs.map((spec) => (
-                              <div key={spec.name} className="p-4 rounded-lg bg-surface border border-border/80">
+                              <motion.div 
+                                key={spec.name} 
+                                whileHover={{ x: 3, borderColor: 'var(--color-accent)' }}
+                                className="p-4 rounded-lg bg-surface border border-border/80 transition-all duration-200"
+                              >
                                 <p className="font-mono text-xs font-semibold text-text-primary uppercase tracking-wide flex items-center gap-1.5">
                                   <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
                                   {spec.name}
@@ -199,7 +224,7 @@ export default function ProjectsSection() {
                                 <p className="mt-1.5 font-mono text-[11px] text-text-secondary leading-relaxed">
                                   {spec.detail}
                                 </p>
-                              </div>
+                              </motion.div>
                             ))}
                           </div>
                         </div>
@@ -207,7 +232,7 @@ export default function ProjectsSection() {
                         {/* System Flow Diagram */}
                         <div>
                           <p className="font-mono text-[10px] text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                            <FileCode className="w-3 h-3 text-accent" />
+                            <FileCode className="w-3.5 h-3.5 text-accent" />
                             // system architecture pipeline
                           </p>
                           <pre className="p-4 rounded-lg bg-surface border border-border font-mono text-[10px] text-accent/80 overflow-x-auto whitespace-pre leading-relaxed select-text shadow-inner">
