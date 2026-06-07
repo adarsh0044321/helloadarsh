@@ -38,7 +38,7 @@ const skills: Skill[] = [
       'Memory heap tracking, thread scheduling optimizations, and frame-rate profiling to eliminate visual glitches and UI stutters.',
   },
   {
-    name: 'Deployment & System Services',
+    name: 'Deployment & Packaging',
     level: 75,
     icon: <Settings className="w-5 h-5 text-accent" />,
     description:
@@ -46,19 +46,12 @@ const skills: Skill[] = [
   },
 ];
 
-const getAsciiBar = (level: number) => {
-  const totalChars = 15;
-  const filledChars = Math.round((level / 100) * totalChars);
-  const emptyChars = totalChars - filledChars;
-  return `[${'█'.repeat(filledChars)}${'░'.repeat(emptyChars)}] ${level}%`;
-};
-
 export default function SkillsSection() {
   return (
     <section id="skills" className="py-24 md:py-32 relative border-t border-border">
       <div className="max-w-6xl mx-auto px-6">
-        <p className="section-label">// technical skills</p>
-        <h2 className="font-sans font-semibold text-2xl md:text-3xl text-text-primary mb-12">
+        <p className="text-xs font-mono uppercase tracking-widest text-accent mb-6">// engineering capability</p>
+        <h2 className="font-sans font-bold text-2xl md:text-3xl text-text-primary mb-12">
           Systems Operations Matrix
         </h2>
 
@@ -70,20 +63,20 @@ export default function SkillsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="terminal-card border border-border bg-surface rounded-xl p-6 hover:border-accent/40 transition-all duration-300"
+              className="bg-surface/30 border border-border rounded-2xl p-6 hover:border-accent/30 transition-all duration-300 shadow-md shadow-black/5"
             >
-              <div className="flex justify-between items-start gap-4">
+              <div className="flex justify-between items-center gap-4">
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-lg bg-bg border border-border">
                     {skill.icon}
                   </div>
-                  <h3 className="font-sans font-semibold text-lg text-text-primary">
+                  <h3 className="font-sans font-semibold text-base md:text-lg text-text-primary">
                     {skill.name}
                   </h3>
                 </div>
-                {/* ASCII Console Bar */}
-                <div className="font-mono text-[10px] text-accent/80 mt-1 select-none">
-                  {getAsciiBar(skill.level)}
+                {/* Clean percentage label */}
+                <div className="font-mono text-xs font-bold text-accent bg-accent/10 border border-accent/20 px-2 py-0.5 rounded-md select-none">
+                  {skill.level}%
                 </div>
               </div>
 
@@ -91,14 +84,14 @@ export default function SkillsSection() {
                 {skill.description}
               </p>
 
-              {/* Graphical Telemetry Progress Bar */}
-              <div className="w-full bg-bg rounded-full h-1 overflow-hidden border border-border">
+              {/* Minimal progress meter */}
+              <div className="w-full bg-bg rounded-full h-1 overflow-hidden border border-border/60">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
-                  className="h-full bg-accent rounded-full shadow-[0_0_8px_#E8663C]"
+                  className="h-full bg-accent rounded-full shadow-[0_0_6px_#E8663C]"
                 />
               </div>
             </motion.div>
