@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Network, Cpu, Shield, ChevronDown, ChevronUp, Activity } from 'lucide-react';
+import { Network, Cpu, Shield, ChevronDown, ChevronUp, PlayCircle } from 'lucide-react';
 
 interface Subsystem {
   name: string;
@@ -15,7 +15,6 @@ interface Project {
   image: string;
   icon: React.ReactNode;
   specs: Subsystem[];
-  flowchart: string;
 }
 
 const projects: Project[] = [
@@ -32,8 +31,7 @@ const projects: Project[] = [
       { name: 'MF H.264 Encoder', detail: 'Direct-on-GPU compression using NVENC/AMF/QSV hardware pipelines.' },
       { name: 'watchdog service', detail: 'Registry-backed persistence service with exponential backoff auto-recovery.' },
       { name: 'input injection', detail: 'Tag-isolated loopback prevention and auto-release guards for stuck keys.' }
-    ],
-    flowchart: 'WGC Capture Engine ➔ H.264 Encoder (GPU) ➔ UDP Network Stream ➔ Client Frame Render ➔ Input Capture'
+    ]
   },
   {
     name: 'FocusFlow',
@@ -48,8 +46,7 @@ const projects: Project[] = [
       { name: 'ocr pipeline', detail: 'Grayscale thresholding, sharpening filters, and structural spacing text cleaners.' },
       { name: 'hybrid router', detail: 'Threaded local llama.cpp GGUF solver fallbacks to rotated OpenAI API endpoints.' },
       { name: 'manual query drawer', detail: 'Glassmorphic draggable HUD overlays with mouse-reactive particles canvas.' }
-    ],
-    flowchart: 'Desktop Frame Select ➔ Sharpen/Denoise Preprocess ➔ Tesseract OCR Parser ➔ LLM Router API ➔ Stealth HUD Render'
+    ]
   },
   {
     name: 'MarkFlow',
@@ -64,8 +61,7 @@ const projects: Project[] = [
       { name: 'contour bounding', detail: 'Contours outline tracking detecting circle bounds and answer region separations.' },
       { name: 'digit classification', detail: 'Embedded MobileNet tflite model recognizing handwritten numbers (0-9).' },
       { name: 'audit validator', detail: 'Unchecked page checkouts, double-check filters, and statistical calculations.' }
-    ],
-    flowchart: 'Exam Camera Frame ➔ OpenCV Red Filter ➔ Contour detection ➔ TF Lite Digit Recognizer ➔ Database Compile'
+    ]
   }
 ];
 
@@ -79,12 +75,12 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="py-24 md:py-32 border-t border-border">
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-xs font-mono uppercase tracking-widest text-accent mb-6">// engineering portfolios</p>
-        <h2 className="font-display font-bold text-2xl md:text-3xl text-text-primary mb-12">
-          Featured projects & utilities
+        <p className="text-xs font-mono uppercase tracking-widest text-accent mb-6">// engineering showcase</p>
+        <h2 className="font-sans font-bold text-3xl md:text-4xl text-text-primary mb-12 font-display">
+          Featured Projects & Utilities
         </h2>
 
-        <div className="space-y-8">
+        <div className="grid grid-cols-1 gap-8">
           {projects.map((project, index) => {
             const isExpanded = expandedProject === project.name;
 
@@ -97,22 +93,22 @@ export default function ProjectsSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="acrylic-glass neumorphic-out rounded-2xl overflow-hidden hover:border-accent/30 transition-all duration-300"
               >
-                {/* Main Card Header */}
+                {/* Main Card Layout */}
                 <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                   
-                  {/* Left part: Clean Image Mockup Container */}
-                  <div className="w-full md:w-2/5 rounded-xl border border-border bg-surface overflow-hidden relative aspect-[16/10] group shadow-inner shrink-0">
+                  {/* Left: Project Image Frame */}
+                  <div className="w-full md:w-2/5 rounded-xl overflow-hidden relative aspect-[16/10] shrink-0 border border-border bg-bg/50 shadow-inner group">
                     <img
                       src={project.image}
                       alt={`${project.name} preview`}
-                      className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg/40 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-bg/30 to-transparent pointer-events-none" />
                   </div>
 
-                  {/* Right part: Details */}
+                  {/* Right: Detailed Content */}
                   <div className="w-full md:w-3/5 flex flex-col justify-between h-full min-h-[190px]">
-                    <div>
+                    <div className="space-y-4">
                       <div className="flex justify-between items-center gap-4">
                         <div className="flex items-center gap-2.5">
                           {project.icon}
@@ -130,19 +126,19 @@ export default function ProjectsSection() {
                             <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                             <path d="M9 18c-4.51 2-5-2-7-2" />
                           </svg>
-                          Codebase ↗
+                          Repository ↗
                         </a>
                       </div>
 
-                      <p className="mt-4 text-text-secondary text-sm leading-relaxed">
+                      <p className="text-text-secondary text-xs md:text-sm leading-relaxed">
                         {project.description}
                       </p>
 
-                      <div className="mt-5 flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-1.5 pt-1">
                         {project.tech.map((t) => (
                           <span
                             key={t}
-                            className="text-[10px] font-medium px-2.5 py-1 rounded-md bg-bg border border-border text-text-muted"
+                            className="text-[9px] font-mono px-2.5 py-1 rounded bg-bg/60 border border-border/80 text-text-muted font-medium"
                           >
                             {t}
                           </span>
@@ -150,28 +146,36 @@ export default function ProjectsSection() {
                       </div>
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-border flex justify-between items-center">
+                    <div className="mt-6 pt-4 border-t border-border flex justify-between items-center select-none">
                       <button
                         onClick={() => toggleExpand(project.name)}
-                        className="font-sans text-xs font-semibold text-accent hover:text-accent/80 transition-colors flex items-center gap-1.5 cursor-pointer"
+                        className="font-sans text-xs font-semibold text-text-secondary hover:text-accent transition-colors flex items-center gap-1.5 cursor-pointer"
                       >
                         {isExpanded ? (
                           <>
                             Hide specifications
-                            <ChevronUp className="w-3.5 h-3.5" />
+                            <ChevronUp className="w-3.5 h-3.5 text-accent" />
                           </>
                         ) : (
                           <>
-                            View specifications & architecture
-                            <ChevronDown className="w-3.5 h-3.5" />
+                            View specifications
+                            <ChevronDown className="w-3.5 h-3.5 text-accent" />
                           </>
                         )}
                       </button>
+
+                      <a
+                        href="#labs"
+                        className="font-sans text-xs font-bold text-accent hover:text-accent/80 transition-colors flex items-center gap-1 cursor-pointer"
+                      >
+                        <PlayCircle className="w-4 h-4" />
+                        <span>Run Simulator ➔</span>
+                      </a>
                     </div>
                   </div>
                 </div>
 
-                {/* Expanded Subsystems / Flowchart */}
+                {/* Expanded Specifications drawer */}
                 <AnimatePresence>
                   {isExpanded && (
                     <motion.div
@@ -179,52 +183,26 @@ export default function ProjectsSection() {
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.35, ease: 'easeInOut' }}
-                      className="border-t border-border bg-bg/20"
+                      className="border-t border-border bg-bg/25"
                     >
-                      <div className="p-6 md:p-8 space-y-6">
-                        {/* Subsystem Specifications */}
-                        <div>
-                          <p className="text-[10px] font-mono text-text-muted uppercase tracking-wider mb-3">// core specifications</p>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {project.specs.map((spec) => (
-                              <motion.div 
-                                key={spec.name} 
-                                whileHover={{ y: -2, borderColor: 'rgba(223, 177, 91, 0.2)' }}
-                                className="acrylic-glass neumorphic-in rounded-2xl p-4 transition-all duration-200"
-                              >
-                                <p className="font-sans font-bold text-xs text-text-primary uppercase tracking-wide flex items-center gap-1.5">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                                  {spec.name}
-                                </p>
-                                <p className="mt-1.5 text-xs text-text-secondary leading-relaxed">
-                                  {spec.detail}
-                                </p>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* System Flow Diagram */}
-                        <div>
-                          <p className="text-[10px] font-mono text-text-muted uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                            <Activity className="w-3.5 h-3.5 text-accent" />
-                            // system architecture pipeline
-                          </p>
-                          
-                          {/* Programmatically parsed flow blocks */}
-                          <div className="flex flex-wrap items-center gap-3 p-4 rounded-2xl acrylic-glass neumorphic-in">
-                            {project.flowchart.split('➔').map((step, stepIdx, arr) => (
-                              <React.Fragment key={stepIdx}>
-                                <div className="bg-bg border border-border/60 px-3.5 py-2 rounded-xl text-xs text-text-primary font-medium shadow-sm">
-                                  {step.trim()}
-                                </div>
-                                {stepIdx < arr.length - 1 && (
-                                  <span className="text-accent font-bold text-xs select-none">➔</span>
-                                )}
-                              </React.Fragment>
-                            ))}
-                          </div>
-
+                      <div className="p-6 md:p-8">
+                        <p className="text-[10px] font-mono text-text-muted uppercase tracking-wider mb-3 select-none">// project core specifications</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {project.specs.map((spec) => (
+                            <motion.div 
+                              key={spec.name} 
+                              whileHover={{ y: -2, borderColor: 'rgba(223, 177, 91, 0.2)' }}
+                              className="acrylic-glass neumorphic-in rounded-xl p-4 transition-all duration-200"
+                            >
+                              <p className="font-sans font-bold text-xs text-text-primary uppercase tracking-wide flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                                {spec.name}
+                              </p>
+                              <p className="mt-1.5 text-xs text-text-secondary leading-relaxed">
+                                {spec.detail}
+                              </p>
+                            </motion.div>
+                          ))}
                         </div>
                       </div>
                     </motion.div>

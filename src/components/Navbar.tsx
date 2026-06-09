@@ -13,7 +13,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sections = ['hero', 'about', 'skills', 'projects', 'contact'];
+    const sections = ['hero', 'about', 'skills', 'labs', 'projects', 'contact'];
     const observers = sections.map((id) => {
       const el = document.getElementById(id);
       if (!el) return null;
@@ -37,21 +37,22 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-bg/90 backdrop-blur-md py-4 border-b border-border shadow-lg shadow-black/10'
-          : 'bg-transparent py-6 border-b border-transparent'
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a href="#hero" className="font-sans text-xl font-bold tracking-tight text-text-primary hover:text-accent transition-colors">
+    <header className="fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 pointer-events-none flex justify-center w-full">
+      <nav
+        className={`transition-all duration-500 pointer-events-auto flex items-center justify-between gap-8 md:gap-12 px-6 w-full max-w-6xl rounded-2xl ${
+          scrolled
+            ? 'bg-surface/85 backdrop-blur-md py-3.5 border border-border shadow-lg shadow-black/20 max-w-[580px]'
+            : 'bg-transparent py-4 border border-transparent'
+        }`}
+      >
+        <a href="#hero" className="font-sans text-lg md:text-xl font-bold tracking-tight text-text-primary hover:text-accent transition-colors shrink-0">
           Adarsh<span className="text-accent">.</span>
         </a>
 
-        <div className="flex items-center gap-6 md:gap-8">
-          {['about', 'skills', 'projects', 'contact'].map((item) => {
+        <div className="flex items-center gap-5 md:gap-6">
+          {['about', 'skills', 'labs', 'projects', 'contact'].map((item) => {
             const isActive = activeSection === item;
+            const displayLabel = item === 'labs' ? 'Labs' : item.charAt(0).toUpperCase() + item.slice(1);
             return (
               <a
                 key={item}
@@ -62,15 +63,15 @@ export default function Navbar() {
                     : 'text-text-secondary hover:text-text-primary'
                 }`}
               >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
+                {displayLabel}
                 {isActive && (
-                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent shadow-[0_0_8px_#E8663C]" />
+                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent shadow-[0_0_8px_#DFB15B]" />
                 )}
               </a>
             );
           })}
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }
