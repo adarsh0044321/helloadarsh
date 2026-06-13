@@ -28,6 +28,24 @@ export default function AboutSection() {
               </p>
             </div>
 
+            {/* Efficiency stats block */}
+            <div className="flex items-center gap-8 py-5 my-6 border-y border-border/60 max-w-[60ch] select-none">
+              <div>
+                <span className="block text-xl font-bold font-sans text-accent tracking-tight">0.8ms</span>
+                <span className="block text-[10px] font-mono text-text-muted uppercase tracking-wider mt-0.5">UDP stream latency</span>
+              </div>
+              <div className="w-[1px] h-8 bg-border/80" />
+              <div>
+                <span className="block text-xl font-bold font-sans text-accent tracking-tight">0%</span>
+                <span className="block text-[10px] font-mono text-text-muted uppercase tracking-wider mt-0.5">Exclusion overhead</span>
+              </div>
+              <div className="w-[1px] h-8 bg-border/80" />
+              <div>
+                <span className="block text-xl font-bold font-sans text-accent tracking-tight">96%</span>
+                <span className="block text-[10px] font-mono text-text-muted uppercase tracking-wider mt-0.5">CV contour rate</span>
+              </div>
+            </div>
+
             {/* Competency highlights */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
               <div className="acrylic-glass neumorphic-out rounded-2xl p-4 flex flex-col items-start gap-3">
