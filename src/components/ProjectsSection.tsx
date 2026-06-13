@@ -149,7 +149,7 @@ export default function ProjectsSection() {
                         {project.tech.map((t) => (
                           <span
                             key={t}
-                            className="text-[9px] font-mono px-2.5 py-1 rounded bg-bg/60 border border-border/80 text-text-muted font-medium"
+                            className="text-[9px] font-mono px-2.5 py-1 rounded bg-bg/60 border border-border/80 text-text-muted font-medium transition-colors hover:border-accent/40 hover:text-accent select-none"
                           >
                             {t}
                           </span>
