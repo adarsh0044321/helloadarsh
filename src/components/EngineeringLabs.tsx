@@ -50,6 +50,17 @@ export default function EngineeringLabs() {
     return () => clearInterval(ticker);
   }, [activeTab, fps, networkNoise]);
 
+  const injectJitter = () => {
+    setLatency((prev) => parseFloat((prev + 12 + Math.random() * 8).toFixed(2)));
+    setPacketDropCount((prev) => prev + 3);
+    setPacketStream((prev) => [
+      ...prev,
+      { id: streamIdCounter.current++, offset: 15, dropped: true },
+      { id: streamIdCounter.current++, offset: 35, dropped: true },
+      { id: streamIdCounter.current++, offset: 55, dropped: true }
+    ]);
+  };
+
 
   // ── 2. FocusFlow Screen Exclusion States ──
   const [exclusionEnabled, setExclusionEnabled] = useState(false);
@@ -204,7 +215,7 @@ export default function EngineeringLabs() {
                   </div>
 
                   {/* Controls Sidebar / Bottom */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
                     {/* FPS Slider */}
                     <div className="space-y-2">
                       <div className="flex justify-between text-xs font-mono">
@@ -242,6 +253,18 @@ export default function EngineeringLabs() {
                           </button>
                         ))}
                       </div>
+                    </div>
+
+                    {/* Manual Jitter Injector */}
+                    <div className="space-y-2">
+                      <span className="text-xs font-mono text-text-secondary uppercase block">Manual Jitter Injector</span>
+                      <button
+                        onClick={injectJitter}
+                        className="w-full py-2 px-4 rounded-xl font-mono text-xs uppercase transition-all duration-300 border border-red-500/30 bg-red-500/10 text-red-400 hover:bg-red-500/20 active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer"
+                      >
+                        <RefreshCw className="w-3.5 h-3.5" />
+                        Inject Spike
+                      </button>
                     </div>
                   </div>
                 </motion.div>
