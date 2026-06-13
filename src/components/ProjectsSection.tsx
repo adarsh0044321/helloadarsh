@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Network, Cpu, Shield, ChevronDown, ChevronUp, PlayCircle } from 'lucide-react';
 
@@ -67,6 +67,17 @@ const projects: Project[] = [
 
 export default function ProjectsSection() {
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!expandedProject) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setExpandedProject(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [expandedProject]);
 
   const toggleExpand = (name: string) => {
     setExpandedProject(expandedProject === name ? null : name);
