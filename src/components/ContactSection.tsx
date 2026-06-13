@@ -153,7 +153,7 @@ export default function ContactSection() {
                         name="name"
                         placeholder="Your name"
                         required
-                        className="peer w-full bg-bg/50 border border-border/80 rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/40 transition-all duration-300 neumorphic-in"
+                        className="peer w-full bg-bg/50 border border-border/80 rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/45 focus:shadow-[0_0_12px_rgba(223,177,91,0.25)] transition-all duration-300 neumorphic-in"
                       />
                       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent origin-center scale-x-0 transition-transform duration-300 peer-focus:scale-x-100" />
                     </div>
@@ -174,7 +174,7 @@ export default function ContactSection() {
                         name="email"
                         placeholder="your@email.com"
                         required
-                        className="peer w-full bg-bg/50 border border-border/80 rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/40 transition-all duration-300 neumorphic-in"
+                        className="peer w-full bg-bg/50 border border-border/80 rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/45 focus:shadow-[0_0_12px_rgba(223,177,91,0.25)] transition-all duration-300 neumorphic-in"
                       />
                       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent origin-center scale-x-0 transition-transform duration-300 peer-focus:scale-x-100" />
                     </div>
@@ -195,7 +195,7 @@ export default function ContactSection() {
                         placeholder="Describe your project requirements..."
                         required
                         rows={5}
-                        className="peer w-full bg-bg/50 border border-border/80 rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/40 transition-all duration-300 resize-none neumorphic-in"
+                        className="peer w-full bg-bg/50 border border-border/80 rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/45 focus:shadow-[0_0_12px_rgba(223,177,91,0.25)] transition-all duration-300 resize-none neumorphic-in"
                       />
                       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent origin-center scale-x-0 transition-transform duration-300 peer-focus:scale-x-100" />
                     </div>
