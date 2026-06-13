@@ -103,20 +103,37 @@ function ConstellationCanvas() {
           }
         }
 
+        // Calculate dynamic opacity based on mouse distance
+        let textOpacity = 0.5;
+        let dotScale = 1;
+        if (mouse.active) {
+          const dx = mouse.x - n.x;
+          const dy = mouse.y - n.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            textOpacity = 0.5 + (1 - dist / 120) * 0.5;
+            dotScale = 1 + (1 - dist / 120) * 0.8;
+          } else {
+            textOpacity = 0.35;
+          }
+        } else {
+          textOpacity = 0.65;
+        }
+
         // Draw gold anchor dot
         ctx.beginPath();
-        ctx.arc(n.x, n.y, 3.5, 0, Math.PI * 2);
-        ctx.fillStyle = "#DFB15B";
+        ctx.arc(n.x, n.y, 3.5 * dotScale, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(223, 177, 91, ${textOpacity})`;
         ctx.shadowColor = "#DFB15B";
-        ctx.shadowBlur = 6;
+        ctx.shadowBlur = mouse.active ? 8 * (textOpacity - 0.3) : 3;
         ctx.fill();
         ctx.shadowBlur = 0; // reset
 
         // Draw tech label
         ctx.font = "500 9px monospace";
-        ctx.fillStyle = "rgba(243, 244, 246, 0.85)";
+        ctx.fillStyle = `rgba(243, 244, 246, ${textOpacity})`;
         ctx.textAlign = "center";
-        ctx.fillText(n.label, n.x, n.y - 12);
+        ctx.fillText(n.label, n.x, n.y - 12 - (dotScale - 1) * 3);
       });
 
       animFrame = requestAnimationFrame(animate);
