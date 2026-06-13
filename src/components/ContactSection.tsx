@@ -4,6 +4,12 @@ import { Mail, Send, Check } from 'lucide-react';
 
 export default function ContactSection() {
   const [copiedLabel, setCopiedLabel] = useState<string | null>(null);
+  const [email, setEmail] = useState('');
+  const [isEmailDirty, setIsEmailDirty] = useState(false);
+
+  const isValidEmail = (val: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  };
 
   const handleCopy = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
@@ -161,12 +167,17 @@ export default function ContactSection() {
 
                   {/* Email field */}
                   <div className="flex flex-col gap-2">
-                    <label
-                      htmlFor="email"
-                      className="font-sans text-xs text-text-muted uppercase tracking-wider font-semibold select-none"
-                    >
-                      Email
-                    </label>
+                    <div className="flex justify-between items-center">
+                      <label
+                        htmlFor="email"
+                        className="font-sans text-xs text-text-muted uppercase tracking-wider font-semibold select-none"
+                      >
+                        Email
+                      </label>
+                      {isEmailDirty && email && !isValidEmail(email) && (
+                        <span className="font-mono text-[9px] text-red-400 uppercase tracking-wide">Invalid email format</span>
+                      )}
+                    </div>
                     <div className="relative">
                       <input
                         type="email"
@@ -174,9 +185,22 @@ export default function ContactSection() {
                         name="email"
                         placeholder="your@email.com"
                         required
-                        className="peer w-full bg-bg/50 border border-border/80 rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none focus:border-accent/45 focus:shadow-[0_0_12px_rgba(223,177,91,0.25)] transition-all duration-300 neumorphic-in"
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                          setIsEmailDirty(true);
+                        }}
+                        className={`peer w-full bg-bg/50 border rounded-xl px-4 py-3 text-sm text-text-primary placeholder:text-text-muted outline-none transition-all duration-300 neumorphic-in ${
+                          isEmailDirty && email && !isValidEmail(email)
+                            ? 'border-red-500/40 focus:border-red-500/50 focus:shadow-[0_0_12px_rgba(239,68,68,0.2)]'
+                            : 'border-border/80 focus:border-accent/45 focus:shadow-[0_0_12px_rgba(223,177,91,0.25)]'
+                        }`}
                       />
-                      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent origin-center scale-x-0 transition-transform duration-300 peer-focus:scale-x-100" />
+                      <div className={`absolute bottom-0 left-0 right-0 h-[2px] origin-center scale-x-0 transition-transform duration-300 peer-focus:scale-x-100 ${
+                        isEmailDirty && email && !isValidEmail(email)
+                          ? 'bg-red-500/80'
+                          : 'bg-accent'
+                      }`} />
                     </div>
                   </div>
 
