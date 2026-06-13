@@ -41,7 +41,7 @@ export default function Navbar() {
       <nav
         className={`transition-all duration-500 pointer-events-auto flex items-center justify-between gap-8 md:gap-12 px-6 w-full max-w-6xl rounded-2xl ${
           scrolled
-            ? 'bg-surface/85 backdrop-blur-md py-3.5 border border-border shadow-lg shadow-black/20 max-w-[580px]'
+            ? 'bg-surface/85 backdrop-blur-md backdrop-saturate-150 py-3.5 border border-border shadow-lg shadow-black/20 max-w-[580px]'
             : 'bg-transparent py-4 border border-transparent'
         }`}
       >
