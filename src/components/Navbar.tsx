@@ -57,16 +57,13 @@ export default function Navbar() {
               <a
                 key={item}
                 href={`#${item}`}
-                className={`font-sans text-xs md:text-sm tracking-wide transition-all duration-300 relative py-1 ${
+                className={`font-sans text-xs md:text-sm tracking-wide transition-all duration-300 relative px-2.5 py-1 rounded-lg border ${
                   isActive
-                    ? 'text-accent font-medium'
-                    : 'text-text-secondary hover:text-text-primary'
+                    ? 'text-accent font-medium bg-accent/[0.04] border-accent/25 shadow-[0_0_10px_rgba(223,177,91,0.2)]'
+                    : 'text-text-secondary hover:text-text-primary border-transparent'
                 }`}
               >
                 {displayLabel}
-                {isActive && (
-                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent shadow-[0_0_8px_#DFB15B]" />
-                )}
               </a>
             );
           })}
