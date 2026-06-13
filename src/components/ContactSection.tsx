@@ -49,8 +49,9 @@ export default function ContactSection() {
                     </p>
                   </div>
                 </div>
-                <span className="text-[10px] text-text-muted border border-border px-2 py-1 rounded-lg bg-bg group-hover:border-accent/30 group-hover:text-accent transition-colors shrink-0">
-                  copy
+                <span className="text-[10px] text-text-muted border border-border px-2.5 py-1 rounded-lg bg-bg group-hover:border-accent/30 group-hover:text-accent transition-all duration-300 shrink-0">
+                  <span className="group-hover:hidden">copy</span>
+                  <span className="hidden group-hover:inline">click to copy</span>
                 </span>
               </div>
 
@@ -72,8 +73,9 @@ export default function ContactSection() {
                     </p>
                   </div>
                 </div>
-                <span className="text-[10px] text-text-muted border border-border px-2 py-1 rounded-lg bg-bg group-hover:border-accent/30 group-hover:text-accent transition-colors shrink-0">
-                  copy
+                <span className="text-[10px] text-text-muted border border-border px-2.5 py-1 rounded-lg bg-bg group-hover:border-accent/30 group-hover:text-accent transition-all duration-300 shrink-0">
+                  <span className="group-hover:hidden">copy</span>
+                  <span className="hidden group-hover:inline">click to copy</span>
                 </span>
               </div>
 
@@ -96,8 +98,9 @@ export default function ContactSection() {
                     </p>
                   </div>
                 </div>
-                <span className="text-[10px] text-text-muted border border-border px-2 py-1 rounded-lg bg-bg group-hover:border-accent/30 group-hover:text-accent transition-colors shrink-0">
-                  copy
+                <span className="text-[10px] text-text-muted border border-border px-2.5 py-1 rounded-lg bg-bg group-hover:border-accent/30 group-hover:text-accent transition-all duration-300 shrink-0">
+                  <span className="group-hover:hidden">copy</span>
+                  <span className="hidden group-hover:inline">click to copy</span>
                 </span>
               </div>
             </div>
