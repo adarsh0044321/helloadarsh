@@ -71,7 +71,7 @@ export default function AboutSection() {
             className="lg:col-span-5 flex flex-col gap-4 w-full"
           >
             {/* Minimalist image showcase */}
-            <div className="w-full aspect-[4/3] max-w-sm mx-auto relative rounded-2xl overflow-hidden group shadow-lg shadow-black/10 acrylic-glass neumorphic-out">
+            <div className="w-full aspect-[4/3] max-w-sm mx-auto relative rounded-2xl overflow-hidden group shadow-lg shadow-black/10 acrylic-glass neumorphic-out hover-sheen">
               <img
                 src="https://framerusercontent.com/images/ajFhk3hDzd27LtsxPDROntb2jA.png"
                 alt="Adarsh Kumar Singh Profile"

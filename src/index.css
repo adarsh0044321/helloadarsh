@@ -172,3 +172,31 @@ textarea {
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent-dim);
 }
+
+/* ── Hover Sheen Reflection ── */
+.hover-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  transform: skewX(-15deg);
+  transition: transform 0.75s ease;
+  pointer-events: none;
+}
+
+.hover-sheen:hover::after {
+  transform: translateX(100%) skewX(-15deg);
+}
