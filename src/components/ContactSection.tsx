@@ -238,6 +238,43 @@ export default function ContactSection() {
           </motion.div>
         </div>
 
+        {/* Infinite Tech Marquee */}
+        <div className="mt-20 relative w-full overflow-hidden py-3 border-y border-border/40 select-none bg-surface/[0.02] backdrop-blur-[2px]">
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
+          
+          <div className="animate-marquee flex gap-12 text-[10px] font-mono tracking-widest text-text-muted uppercase">
+            {/* Group 1 */}
+            <div className="flex gap-12 shrink-0">
+              <span>RUST</span> <span>//</span>
+              <span>TOKIO</span> <span>//</span>
+              <span>Win32 API</span> <span>//</span>
+              <span>OPENCV</span> <span>//</span>
+              <span>PYTHON</span> <span>//</span>
+              <span>UDP MULTICAST</span> <span>//</span>
+              <span>WEBRTC</span> <span>//</span>
+              <span>TENSORFLOW LITE</span> <span>//</span>
+              <span>KOTLIN</span> <span>//</span>
+              <span>LOW LATENCY STREAMING</span> <span>//</span>
+              <span>CUDA CORES</span> <span>//</span>
+            </div>
+            {/* Group 2 (Duplicate for seamless loop) */}
+            <div className="flex gap-12 shrink-0">
+              <span>RUST</span> <span>//</span>
+              <span>TOKIO</span> <span>//</span>
+              <span>Win32 API</span> <span>//</span>
+              <span>OPENCV</span> <span>//</span>
+              <span>PYTHON</span> <span>//</span>
+              <span>UDP MULTICAST</span> <span>//</span>
+              <span>WEBRTC</span> <span>//</span>
+              <span>TENSORFLOW LITE</span> <span>//</span>
+              <span>KOTLIN</span> <span>//</span>
+              <span>LOW LATENCY STREAMING</span> <span>//</span>
+              <span>CUDA CORES</span> <span>//</span>
+            </div>
+          </div>
+        </div>
+
         {/* Footer */}
         <div className="mt-24 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <span className="font-mono text-xs text-text-muted">
